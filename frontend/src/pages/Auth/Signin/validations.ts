@@ -1,0 +1,19 @@
+import * as yup from "yup";
+
+interface YupValues {
+    email: string,
+    password: string
+}
+
+const validations: yup.Schema<YupValues> = yup.object().shape({
+    email: yup
+        .string()
+        .email("Geçerli bir email girin")
+        .required("Zorunlu alan"),
+    password: yup
+        .string()
+        .min(5, "Parolanız en az 5 karakter olmalıdır")
+        .required()
+});
+
+export default validations;
